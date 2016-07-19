@@ -2,9 +2,10 @@
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Input;
+using YieldDumpConverter.Services;
 using Excel = Microsoft.Office.Interop.Excel;
 
-namespace YieldDumpConverter
+namespace YieldDumpConverter.Views
 {
     public partial class MainWindow : Window
     {
@@ -14,7 +15,7 @@ namespace YieldDumpConverter
             textBoxMain.Focus();
             DataObject.AddPastingHandler(textBoxMain, OnPaste);
         }
-        
+
         /// <summary>
         /// Intercepts the clipboard text on paste event and runs it through the
         /// conversion process.

@@ -1,6 +1,6 @@
 ﻿using System.Windows.Input;
 
-namespace YieldDumpConverter
+namespace YieldDumpConverter.Commands
 {
     public static class CustomCommands
     {

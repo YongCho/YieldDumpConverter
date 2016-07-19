@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 
-namespace YieldDumpConverter
+namespace YieldDumpConverter.Services
 {
     class Utility
     {
@@ -44,7 +44,7 @@ namespace YieldDumpConverter
         /// <summary> Finds and kills process by hWnd to the main window of the process.</summary>
         /// <param name="hWnd">Handle to the main window of the process.</param>
         /// <exception cref="ArgumentException">
-        /// Thrown when process is not found by the hWnd parameter (the process is not running). 
+        /// Thrown when process is not found by the hWnd parameter (the process is not running).
         /// The identifier of the process might be expired.
         /// </exception>
         /// <exception cref="Win32Exception">See Process.Kill() exceptions documentation.</exception>

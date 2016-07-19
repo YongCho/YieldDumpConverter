@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace YieldDumpConverter
+namespace YieldDumpConverter.Services
 {
     class Converter
     {

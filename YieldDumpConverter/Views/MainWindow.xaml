@@ -1,11 +1,11 @@
-﻿<Window x:Class="YieldDumpConverter.MainWindow"
+﻿<Window x:Class="YieldDumpConverter.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:self="clr-namespace:YieldDumpConverter"
+        xmlns:commands="clr-namespace:YieldDumpConverter.Commands"
         Title="YieldDump Converter" Height="600" Width="800">
 
     <Window.CommandBindings>
-        <CommandBinding Command="self:CustomCommands.OpenInExcelCommand" CanExecute="OpenInExcelCommand_CanExecute"  Executed="OpenInExcelCommand_Executed" />
+        <CommandBinding Command="commands:CustomCommands.OpenInExcelCommand" CanExecute="OpenInExcelCommand_CanExecute"  Executed="OpenInExcelCommand_Executed" />
     </Window.CommandBindings>
 
     <Grid>
@@ -17,7 +17,7 @@
             <TextBox Grid.Row="0" x:Name="textBoxMain" AcceptsReturn="True" AcceptsTab="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" Background="AntiqueWhite" />
             <Border Grid.Row= "1" Margin="5">
                 <WrapPanel HorizontalAlignment="Right">
-                    <Button x:Name="btnOpenInExcel" Content="Open in Excel (Ctrl-Shift-E)" Height="40" Padding="10,0" Margin="10,0,0,0" Command="self:CustomCommands.OpenInExcelCommand" />
+                    <Button x:Name="btnOpenInExcel" Content="Open in Excel (Ctrl-Shift-E)" Height="40" Padding="10,0" Margin="10,0,0,0" Command="commands:CustomCommands.OpenInExcelCommand" />
                     <Button x:Name="btnCrash" Content="Crash" Height="40" Padding="10,0" Margin="10,0,0,0" Click="btnCrash_Click" />
                 </WrapPanel>
 
