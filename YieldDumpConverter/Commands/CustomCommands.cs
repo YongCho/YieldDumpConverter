@@ -10,7 +10,7 @@ namespace YieldDumpConverter.Commands
             typeof(CustomCommands),
             new InputGestureCollection()
             {
-                    new KeyGesture(Key.E, ModifierKeys.Control | ModifierKeys.Shift)
+                new KeyGesture(Key.E, ModifierKeys.Control | ModifierKeys.Shift)
             }
         );
     }

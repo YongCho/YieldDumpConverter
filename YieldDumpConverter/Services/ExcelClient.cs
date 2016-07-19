@@ -8,7 +8,7 @@ namespace YieldDumpConverter.Services
     class ExcelClient
     {
         /// <summary>
-        /// Opens a new Excel window and pastes the text into the default worksheet.
+        /// Opens a new Excel window and pastes the passed text into the default worksheet.
         /// </summary>
         /// <param name="textToPaste">Text to be pasted into the Excel</param>
         public static void OpenInExcel(string textToPaste)
@@ -41,7 +41,9 @@ namespace YieldDumpConverter.Services
                 // Create a new empty workbook.
                 xlWorkbook = xlApp.Workbooks.Add();
 
-                // Copy and paste the textbox content to the active worksheet.
+                // Copy and paste the passed text to the active worksheet.
+                // This has a side effect of changing the clipboard content.
+                // Maybe there is a way to do this without using clipboard.
                 Clipboard.Clear();
                 Clipboard.SetText(textToPaste);
                 xlWorkbook.ActiveSheet.Paste();
@@ -65,7 +67,8 @@ namespace YieldDumpConverter.Services
                     int hwnd = xlApp.Application.Hwnd;
                     xlApp.Quit();
 
-                    // In debug mode, the EXCEL.EXE process may still be alive. Kill it by the window handle.
+                    // In debug mode, EXCEL.EXE process may still be alive after we have released all handles.
+                    // Kill it by the window handle.
                     Utility.TryKillProcessByMainWindowHwnd(hwnd);
                 }
 
