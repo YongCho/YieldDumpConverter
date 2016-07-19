@@ -48,12 +48,19 @@ namespace YieldDumpConverter.Services
                 Clipboard.SetText(textToPaste);
                 xlWorkbook.ActiveSheet.Paste();
 
+                // After pasting we have the entire pasted area selected.
+                // Deselect them and move the cursor to the first cell just to be neat.
+                xlWorkbook.ActiveSheet.Range("A1").Select();
+
                 // Increase column widths to fit all text nicely.
                 xlWorkbook.ActiveSheet.Columns[1].ColumnWidth = 20;
                 xlWorkbook.ActiveSheet.Columns[2].ColumnWidth = 15;
 
                 // Make the Excel window visible to the user.
                 xlApp.Visible = true;
+
+                // Sometimes the window doesn't seem to appear on top. Bring it forward.
+                xlApp.ActiveWindow.Activate();
             }
             catch (Exception ex)
             {
