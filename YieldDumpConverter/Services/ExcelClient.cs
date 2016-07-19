@@ -8,9 +8,9 @@ namespace YieldDumpConverter.Services
     class ExcelClient
     {
         /// <summary>
-        /// Opens a new Excel window and pastes the passed text into the default worksheet.
+        /// Opens a new Excel window and pastes the passed yield dump text into the default worksheet.
         /// </summary>
-        /// <param name="textToPaste">Text to be pasted into the Excel</param>
+        /// <param name="textToPaste">Raw yield dump to be pasted into the Excel</param>
         public static void OpenInExcel(string textToPaste)
         {
             try
@@ -47,6 +47,10 @@ namespace YieldDumpConverter.Services
                 Clipboard.Clear();
                 Clipboard.SetText(textToPaste);
                 xlWorkbook.ActiveSheet.Paste();
+
+                // Increase column widths to fit all text nicely.
+                xlWorkbook.ActiveSheet.Columns[1].ColumnWidth = 20;
+                xlWorkbook.ActiveSheet.Columns[2].ColumnWidth = 15;
 
                 // Make the Excel window visible to the user.
                 xlApp.Visible = true;
